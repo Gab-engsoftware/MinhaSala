@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.activity.FormularioQuadroActivity">
+
+        <EditText
+            android:id="@+id/dia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="Dia da Semana"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/nome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Disciplina"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="@id/dia"
+            app:layout_constraintStart_toStartOf="@id/dia"
+            app:layout_constraintTop_toBottomOf="@+id/dia" />
+
+        <EditText
+            android:id="@+id/professor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Professor"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="@id/dia"
+            app:layout_constraintStart_toStartOf="@id/dia"
+            app:layout_constraintTop_toBottomOf="@+id/nome" />
+
+        <EditText
+            android:id="@+id/sala"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Sala"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="@id/dia"
+            app:layout_constraintStart_toStartOf="@id/dia"
+            app:layout_constraintTop_toBottomOf="@+id/professor" />
+
+        <Button android:id="@+id/botao_salvar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Salvar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sala"
+            app:layout_constraintVertical_bias="1"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

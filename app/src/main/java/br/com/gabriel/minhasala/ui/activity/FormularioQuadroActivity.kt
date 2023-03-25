@@ -2,8 +2,6 @@ package br.com.gabriel.minhasala.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import br.com.gabriel.minhasala.R
@@ -16,30 +14,35 @@ class FormularioQuadroActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        configuraBotaoSalvar()
+    }
 
-        val botaoSalvar = findViewById<Button>(R.id.botao_salvar)
+    private fun configuraBotaoSalvar() {
+        val botaoSalvar = findViewById<Button>(R.id.activity_formulario_botao_salvar)
+        val dao = QuadrosDao()
         botaoSalvar.setOnClickListener {
-            val campoNome = findViewById<EditText>(R.id.nome)
-            val nome = campoNome.text.toString()
-            val campoDia = findViewById<EditText>(R.id.dia)
-            val dia = campoDia.text.toString()
-            val campoProfessor = findViewById<EditText>(R.id.professor)
-            val professor = campoProfessor.text.toString()
-            val campoSala = findViewById<EditText>(R.id.sala)
-            val sala = campoSala.text.toString()
-
-            val quadro = Quadro(
-                nome = nome,
-                dia = dia,
-                professor = professor,
-                sala =  sala
-            )
-            Log.i("FormularioQuadro", "onCreate: $quadro")
-            val dao = QuadrosDao()
+            val quadro = criaQuadro()
             dao.adiciona(quadro)
-            Log.i("FormularioQuadro", "onCreate: ${dao.buscaTodos()}")
             finish()
         }
+    }
+
+    private fun criaQuadro(): Quadro {
+        val campoNome = findViewById<EditText>(R.id.activity_formulario_nome)
+        val nome = campoNome.text.toString()
+        val campoDia = findViewById<EditText>(R.id.activity_formulario_dia)
+        val dia = campoDia.text.toString()
+        val campoProfessor = findViewById<EditText>(R.id.activity_formulario_professor)
+        val professor = campoProfessor.text.toString()
+        val campoSala = findViewById<EditText>(R.id.activity_formulario_sala)
+        val sala = campoSala.text.toString()
+
+        return Quadro(
+            nome = nome,
+            dia = dia,
+            professor = professor,
+            sala = sala
+        )
     }
 
 }

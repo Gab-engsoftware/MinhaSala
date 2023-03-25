@@ -2,7 +2,6 @@ package br.com.gabriel.minhasala.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,26 +20,29 @@ class QuadroDeAluas : AppCompatActivity(R.layout.activity_quado_aulas) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         configuraRecyclerView()
-
+        configuraFab()
     }
 
     override fun onResume() {
         super.onResume()
         adapter.atualiza(dao.buscaTodos())
-        configuraFab()
     }
 
     private fun configuraFab() {
-        val fab = findViewById<FloatingActionButton>(R.id.floatingActionButton)
+        val fab = findViewById<FloatingActionButton>(R.id.activity_lista_quadro_fab)
         fab.setOnClickListener {
-            val intent = Intent(this, FormularioQuadroActivity::class.java)
-            startActivity(intent)
+            vaiParaFormularioQuadro()
         }
+    }
+
+    private fun vaiParaFormularioQuadro() {
+        val intent = Intent(this, FormularioQuadroActivity::class.java)
+        startActivity(intent)
     }
 
     private fun configuraRecyclerView() {
 
-        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView = findViewById(R.id.activity_lista_quadro_recyclerView)
         recyclerView.adapter = adapter
         layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager

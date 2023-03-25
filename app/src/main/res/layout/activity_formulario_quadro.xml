@@ -13,7 +13,7 @@
         tools:context=".ui.activity.FormularioQuadroActivity">
 
         <EditText
-            android:id="@+id/dia"
+            android:id="@+id/activity_formulario_dia"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -24,36 +24,36 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/nome"
+            android:id="@+id/activity_formulario_nome"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Disciplina"
             android:inputType="text"
-            app:layout_constraintEnd_toEndOf="@id/dia"
-            app:layout_constraintStart_toStartOf="@id/dia"
-            app:layout_constraintTop_toBottomOf="@+id/dia" />
+            app:layout_constraintEnd_toEndOf="@id/activity_formulario_dia"
+            app:layout_constraintStart_toStartOf="@id/activity_formulario_dia"
+            app:layout_constraintTop_toBottomOf="@+id/activity_formulario_dia" />
 
         <EditText
-            android:id="@+id/professor"
+            android:id="@+id/activity_formulario_professor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Professor"
             android:inputType="text"
-            app:layout_constraintEnd_toEndOf="@id/dia"
-            app:layout_constraintStart_toStartOf="@id/dia"
-            app:layout_constraintTop_toBottomOf="@+id/nome" />
+            app:layout_constraintEnd_toEndOf="@id/activity_formulario_dia"
+            app:layout_constraintStart_toStartOf="@id/activity_formulario_dia"
+            app:layout_constraintTop_toBottomOf="@+id/activity_formulario_nome" />
 
         <EditText
-            android:id="@+id/sala"
+            android:id="@+id/activity_formulario_sala"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Sala"
             android:inputType="text"
-            app:layout_constraintEnd_toEndOf="@id/dia"
-            app:layout_constraintStart_toStartOf="@id/dia"
-            app:layout_constraintTop_toBottomOf="@+id/professor" />
+            app:layout_constraintEnd_toEndOf="@id/activity_formulario_dia"
+            app:layout_constraintStart_toStartOf="@id/activity_formulario_dia"
+            app:layout_constraintTop_toBottomOf="@+id/activity_formulario_professor" />
 
-        <Button android:id="@+id/botao_salvar"
+        <Button android:id="@+id/activity_formulario_botao_salvar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -61,7 +61,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sala"
+            app:layout_constraintTop_toBottomOf="@+id/activity_formulario_sala"
             app:layout_constraintVertical_bias="1"/>
 
 

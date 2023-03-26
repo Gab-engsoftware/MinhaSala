@@ -4,21 +4,34 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 import br.com.gabriel.minhasala.R
 import br.com.gabriel.minhasala.dao.QuadrosDao
+import br.com.gabriel.minhasala.databinding.ActivityFormularioQuadroBinding
 import br.com.gabriel.minhasala.model.Quadro
 
 class FormularioQuadroActivity :
     AppCompatActivity(R.layout.activity_formulario_quadro) {
-
+    private val binding by lazy {
+        ActivityFormularioQuadroBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(binding.root)
         configuraBotaoSalvar()
+        binding.activityFormularioImagem.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setView(R.layout.formulario_imagem)
+                .setPositiveButton("Confirmar") {_,_ ->}
+                .setNegativeButton("Cancelar"){_,_->}
+                .show()
+        }
+
     }
 
     private fun configuraBotaoSalvar() {
-        val botaoSalvar = findViewById<Button>(R.id.activity_formulario_botao_salvar)
+        val botaoSalvar = binding.activityFormularioBotaoSalvar
         val dao = QuadrosDao()
         botaoSalvar.setOnClickListener {
             val quadro = criaQuadro()
@@ -28,13 +41,13 @@ class FormularioQuadroActivity :
     }
 
     private fun criaQuadro(): Quadro {
-        val campoNome = findViewById<EditText>(R.id.activity_formulario_nome)
+        val campoNome = binding.activityFormularioNome
         val nome = campoNome.text.toString()
-        val campoDia = findViewById<EditText>(R.id.activity_formulario_dia)
+        val campoDia = binding.activityFormularioDia
         val dia = campoDia.text.toString()
-        val campoProfessor = findViewById<EditText>(R.id.activity_formulario_professor)
+        val campoProfessor = binding.activityFormularioProfessor
         val professor = campoProfessor.text.toString()
-        val campoSala = findViewById<EditText>(R.id.activity_formulario_sala)
+        val campoSala = binding.activityFormularioSala
         val sala = campoSala.text.toString()
 
         return Quadro(

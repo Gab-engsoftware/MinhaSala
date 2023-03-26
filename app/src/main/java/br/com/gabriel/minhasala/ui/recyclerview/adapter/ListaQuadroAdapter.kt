@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.gabriel.minhasala.R
+import br.com.gabriel.minhasala.databinding.QuadroItemBinding
 import br.com.gabriel.minhasala.model.Quadro
+import coil.load
 
 class ListaQuadroAdapter(
     private val context: Context,
@@ -17,25 +19,27 @@ class ListaQuadroAdapter(
 
     private val quadros = quadros.toMutableList()
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(private val binding: QuadroItemBinding):
+        RecyclerView.ViewHolder(binding.root) {
 
         fun vincula(quadro: Quadro) {
-            val nome = itemView.findViewById<TextView>(R.id.quadro_item_nome)
+            val nome = binding.quadroItemNome
             nome.text = quadro.nome
-            val professor = itemView.findViewById<TextView>(R.id.quadro_item_professor)
+            val professor = binding.quadroItemProfessor
             professor.text = quadro.professor
-            val dia = itemView.findViewById<TextView>(R.id.quadro_item_dia)
+            val dia = binding.quadroItemDia
             dia.text = quadro.dia
-            val sala = itemView.findViewById<TextView>(R.id.quadro_item_sala)
+            val sala = binding.quadroItemSala
             sala.text = quadro.sala
+            binding.quadroItemImagem.load("https://coopersystem.com.br/wp-content/uploads/2019/07/Principais-d%C3%BAvidas-sobre-desenvolvimento-mobile-1.png")
         }
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(context)
-        val view = inflater.inflate(R.layout.quadro_item, parent, false)
-        return ViewHolder(view)
+        val binding = QuadroItemBinding.inflate(inflater, parent, false)
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int = quadros.size

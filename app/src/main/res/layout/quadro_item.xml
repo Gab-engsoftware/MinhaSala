@@ -16,7 +16,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/quadro_item_image"
+            android:id="@+id/quadro_item_imagem"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_margin="16dp"
@@ -24,7 +24,7 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/programacao_moblie"
+            app:srcCompat="@drawable/imagem_padrao"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="16dp" />
 
@@ -39,7 +39,7 @@
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/quadro_item_image"
+            app:layout_constraintTop_toBottomOf="@id/quadro_item_imagem"
             tools:ignore="MissingConstraints"
             tools:text="Quadro de Horario" />
 

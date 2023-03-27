@@ -4,5 +4,6 @@ data class Quadro(
     val nome: String,
     val sala: String,
     val dia: String,
-    val professor: String
+    val professor: String,
+    val imagem: String? = null
 )

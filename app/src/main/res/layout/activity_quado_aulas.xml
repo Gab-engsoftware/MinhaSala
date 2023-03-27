@@ -17,6 +17,7 @@
         tools:ignore="MissingConstraints"
         tools:listitem="@layout/quadro_item" />
 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/activity_lista_quadro_fab"
         android:layout_width="wrap_content"

@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.gabriel.minhasala.R
 import br.com.gabriel.minhasala.databinding.QuadroItemBinding
+import br.com.gabriel.minhasala.extensions.tentaCarregarImagem
 import br.com.gabriel.minhasala.model.Quadro
 import coil.load
 
@@ -31,7 +32,15 @@ class ListaQuadroAdapter(
             dia.text = quadro.dia
             val sala = binding.quadroItemSala
             sala.text = quadro.sala
-            binding.quadroItemImagem.load("https://coopersystem.com.br/wp-content/uploads/2019/07/Principais-d%C3%BAvidas-sobre-desenvolvimento-mobile-1.png")
+
+           val visibilidade =  if(quadro.imagem != null){
+                View.VISIBLE
+            }else{
+               View.GONE
+           }
+            binding.quadroItemImagem.visibility = visibilidade
+
+            binding.quadroItemImagem.tentaCarregarImagem(quadro.imagem)
         }
     }
 

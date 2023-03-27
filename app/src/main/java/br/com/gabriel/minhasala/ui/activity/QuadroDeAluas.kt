@@ -2,13 +2,19 @@ package br.com.gabriel.minhasala.ui.activity
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.gabriel.minhasala.R
 import br.com.gabriel.minhasala.dao.QuadrosDao
+import br.com.gabriel.minhasala.ui.dialog.FormularioImagemDialog
 import br.com.gabriel.minhasala.ui.recyclerview.adapter.ListaQuadroAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -32,6 +38,7 @@ class QuadroDeAluas : AppCompatActivity(R.layout.activity_quado_aulas) {
 
     private fun configuraFab() {
         val fab = findViewById<FloatingActionButton>(R.id.activity_lista_quadro_fab)
+        fab.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorOnPrimary))
         fab.setOnClickListener {
             vaiParaFormularioQuadro()
         }

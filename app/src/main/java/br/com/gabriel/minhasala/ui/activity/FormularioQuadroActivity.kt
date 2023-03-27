@@ -5,27 +5,34 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import br.com.gabriel.minhasala.R
 import br.com.gabriel.minhasala.dao.QuadrosDao
 import br.com.gabriel.minhasala.databinding.ActivityFormularioQuadroBinding
+import br.com.gabriel.minhasala.databinding.FormularioImagemBinding
+import br.com.gabriel.minhasala.extensions.tentaCarregarImagem
 import br.com.gabriel.minhasala.model.Quadro
+import br.com.gabriel.minhasala.ui.dialog.FormularioImagemDialog
+import coil.load
 
 class FormularioQuadroActivity :
     AppCompatActivity(R.layout.activity_formulario_quadro) {
     private val binding by lazy {
         ActivityFormularioQuadroBinding.inflate(layoutInflater)
     }
+    private var url: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        title = "Cadastrar Sala"
         configuraBotaoSalvar()
         binding.activityFormularioImagem.setOnClickListener {
-            AlertDialog.Builder(this)
-                .setView(R.layout.formulario_imagem)
-                .setPositiveButton("Confirmar") {_,_ ->}
-                .setNegativeButton("Cancelar"){_,_->}
-                .show()
+            FormularioImagemDialog(this)
+                .mostra(url) { imagem ->
+                    url = imagem
+                    binding.activityFormularioImagem.tentaCarregarImagem(url)
+                }
         }
 
     }
@@ -54,7 +61,8 @@ class FormularioQuadroActivity :
             nome = nome,
             dia = dia,
             professor = professor,
-            sala = sala
+            sala = sala,
+            imagem = url
         )
     }
 
